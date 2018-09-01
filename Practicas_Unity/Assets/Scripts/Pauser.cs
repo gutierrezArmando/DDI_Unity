@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;/*Para utilizar el metodo LoadScene */
 
 public class Pauser : MonoBehaviour
 {
+    public AudioSource music;
 	private bool paused = false;
     public GameObject pausePanel;
-	
+	public bool isMuted = false;
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -37,6 +39,8 @@ public class Pauser : MonoBehaviour
 
     public void MuteMusic()
     {
+        isMuted = !isMuted;
+        music.mute = isMuted;
         Debug.Log("Mute...");
     }
 
