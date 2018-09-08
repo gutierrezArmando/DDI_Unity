@@ -7,7 +7,8 @@ public class Interactable : MonoBehaviour {
     public Color color;
     public GameObject infoPanel;
     private bool isPlayerInside = false;
-    public float rotationSpeed = 3f;
+    public float rotationSpeed = 30f;
+    private bool colorUpdated = false;
 
     private void Start()
     {
@@ -17,9 +18,14 @@ public class Interactable : MonoBehaviour {
     private void Update()
     {
         transform.Rotate(Vector3.up * Time.deltaTime * rotationSpeed);
-        if(Input.GetKeyDown(KeyCode.F) && isPlayerInside)
+        if(Input.GetKeyDown(KeyCode.I) && isPlayerInside)
         {
-            gameObject.GetComponent<Renderer>().material.color = color;
+            colorUpdated = !colorUpdated;
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", colorUpdated? Color.green: Color.red);
+
+            //gameObject.GetComponent<Renderer>().material.color = color;
+            //gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            
         }
         
     }
