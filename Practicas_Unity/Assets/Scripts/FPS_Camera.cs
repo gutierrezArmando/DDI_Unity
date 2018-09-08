@@ -6,22 +6,49 @@ public class FPS_Camera : MonoBehaviour {
 
     public Camera FPSCamera;
 
-    public float horizontalSpeed;
-    public float verticalSpeed;
-
-    float h;
-    float v;
+    public float deltaRotate;
+    public float deltaMovement;    
 
 	// Use this for initialization
 	void Start () {
-		
+        deltaRotate = 90f;
+	    deltaMovement = 20f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        h = horizontalSpeed * Input.GetAxis("Mouse X");
-        v = verticalSpeed * Input.GetAxis("Mouse Y");
-
-        transform.Rotate(0,h,0);
+        Rotate();
+	    Movement();
 	}
+
+    void Rotate()
+    {
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(new Vector3(0f, deltaRotate, 0f) * Time.deltaTime);
+        }
+        else
+        {
+            if(Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Rotate(new Vector3(0f, -deltaRotate, 0f) * Time.deltaTime);
+            }
+        }
+    }
+
+    void Movement()
+    {
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(new Vector3(0f, 0f, deltaMovement) * Time.deltaTime);
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.Translate(new Vector3(0f, 0f, -deltaMovement) * Time.deltaTime);
+            }
+        }
+    }
 }
