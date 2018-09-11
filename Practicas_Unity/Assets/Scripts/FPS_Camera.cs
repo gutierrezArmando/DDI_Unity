@@ -12,7 +12,7 @@ public class FPS_Camera : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         deltaRotate = 90f;
-	    deltaMovement = 20f;
+	    deltaMovement = 10f;
 	}
 	
 	// Update is called once per frame
