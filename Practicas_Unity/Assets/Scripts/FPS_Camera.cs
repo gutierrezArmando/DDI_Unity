@@ -5,14 +5,13 @@ using UnityEngine;
 public class FPS_Camera : MonoBehaviour {
 
     public Camera FPSCamera;
-
     public float deltaRotate;
     public float deltaMovement;    
 
 	// Use this for initialization
 	void Start () {
-        deltaRotate = 90f;
-	    deltaMovement = 10f;
+        deltaRotate = 80f;
+	    deltaMovement = 5f;
 	}
 	
 	// Update is called once per frame

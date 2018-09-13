@@ -9,8 +9,9 @@ public class Pauser : MonoBehaviour
     public GameObject pausePanel;
 	public bool isMuted = false;
 
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
 		if(Input.GetKeyUp(KeyCode.P))
 		{
@@ -29,12 +30,13 @@ public class Pauser : MonoBehaviour
         Debug.Log("Continuar...");
         paused = false;
         pausePanel.SetActive(paused);
+        pausePanel.gameObject.SetActive(paused);
     }
 
     public void ResetGame()
     {
         Debug.Log("Reset...");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void MuteMusic()
