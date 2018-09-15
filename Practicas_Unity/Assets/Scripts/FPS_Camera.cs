@@ -6,18 +6,22 @@ public class FPS_Camera : MonoBehaviour {
 
     public Camera FPSCamera;
     public float deltaRotate;
-    public float deltaMovement;    
+    public float deltaMovement;
+    public GameObject lampara;
+    private bool lamparaEncedida;
 
 	// Use this for initialization
 	void Start () {
         deltaRotate = 80f;
 	    deltaMovement = 5f;
+        lamparaEncedida = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         Rotate();
 	    Movement();
+        OnOffLamp();
 	}
 
     void Rotate()
@@ -48,6 +52,15 @@ public class FPS_Camera : MonoBehaviour {
             {
                 transform.Translate(new Vector3(0f, 0f, -deltaMovement) * Time.deltaTime);
             }
+        }
+    }
+
+    private void OnOffLamp()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            lamparaEncedida = !lamparaEncedida;
+            lampara.SetActive(lamparaEncedida ? true : false);
         }
     }
 }
