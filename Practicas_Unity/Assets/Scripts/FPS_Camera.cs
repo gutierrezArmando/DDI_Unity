@@ -12,8 +12,8 @@ public class FPS_Camera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        deltaRotate = 80f;
-	    deltaMovement = 5f;
+        deltaRotate = 90f;
+	    deltaMovement = 10f;
         lamparaEncedida = true;
 	}
 	
