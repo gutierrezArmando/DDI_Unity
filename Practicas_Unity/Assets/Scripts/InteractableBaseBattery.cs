@@ -9,7 +9,9 @@ public class InteractableBaseBattery : MonoBehaviour
 	private bool intoSphere;
 	public GameObject inventoryPanel;
 	public GameObject lightBattery;
-
+	public AudioSource motorSound;
+	public GameObject closedDoor;
+	private int repeat = 220;
 	public GameObject battery;
 	// Use this for initialization
 	void Start ()
@@ -32,6 +34,9 @@ public class InteractableBaseBattery : MonoBehaviour
 				print("No esta en inventario");
 			}
 		}
+		
+		if(batteryOk)
+			OpenDoor();
 		//putBattery();
 	}
 
@@ -57,7 +62,19 @@ public class InteractableBaseBattery : MonoBehaviour
 			inventoryPanel.transform.Find("Battery").gameObject.SetActive(false);
 			inventoryPanel.SetActive(false);
 			lightBattery.SetActive(true);
+			motorSound.mute = false;
+			//OpenDoor();
 			print("Bateria colocada");
 		}
+	}
+
+	private void OpenDoor()
+	{
+		if (repeat>0)
+		{
+			closedDoor.transform.Translate(new Vector3(0f, 1f, 0f) * Time.deltaTime);
+			repeat--;
+		}
+
 	}
 }

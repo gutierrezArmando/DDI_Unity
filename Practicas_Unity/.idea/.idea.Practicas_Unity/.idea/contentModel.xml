@@ -228,6 +228,7 @@
           <e p="Interactable.cs" t="Include" />
           <e p="InteractableBaseBattery.cs" t="Include" />
           <e p="InteractableBatery.cs" t="Include" />
+          <e p="InteractableBigBattery.cs" t="Include" />
           <e p="LamparaSensitiva.cs" t="Include" />
           <e p="LayBombs.cs" t="Include" />
           <e p="LightHerv.cs" t="Include" />
