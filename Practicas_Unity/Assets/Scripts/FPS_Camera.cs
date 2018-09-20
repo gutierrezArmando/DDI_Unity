@@ -9,12 +9,15 @@ public class FPS_Camera : MonoBehaviour {
     public float deltaMovement;
     public GameObject lampara;
     private bool lamparaEncedida;
+    private bool inventoryActived;
+    public GameObject inventoryPanel;
 
 	// Use this for initialization
 	void Start () {
         deltaRotate = 90f;
 	    deltaMovement = 10f;
         lamparaEncedida = true;
+	    inventoryActived = false;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +25,18 @@ public class FPS_Camera : MonoBehaviour {
         Rotate();
 	    Movement();
         OnOffLamp();
+	    viewInventory();
 	}
+
+    void viewInventory()
+    {
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            inventoryActived = !inventoryActived;
+            inventoryPanel.SetActive(inventoryActived);
+            Time.timeScale = 0f;
+        }
+    }
 
     void Rotate()
     {
